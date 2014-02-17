@@ -1,0 +1,14 @@
+---
+- hosts: all
+  sudo: yes
+  roles:
+    - mivok0.users
+  tasks:
+    - name: ensure ntpd is at the latest version
+      apt: pkg=ntp state=latest
+      notify:
+      - restart ntpd
+  handlers:
+    - name: restart ntpd
+      service: name=ntpd state=restarted
+
