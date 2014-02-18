@@ -10,11 +10,6 @@
       apt: pkg=ntp state=latest
       notify:
       - restart ntpd
-    - name: launch docker sshd
-      docker: image=smo921/ubuntu-ssh port_bindings=22:40022
-    - name: Display IP address and port mappings for containers
-      debug: msg={{inventory_hostname}} {{item.NetworkSettings}}
-      with_items: docker_containers
 
   handlers:
     - name: restart ntpd

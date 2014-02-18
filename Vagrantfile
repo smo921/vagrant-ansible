@@ -17,6 +17,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       host.vm.network :public_network
       host.vm.synced_folder "data", "/vagrant_data"
 
+      host.vm.provider "virtualbox" do |vb|
+        vb.customize ["modifyvm", :id, "--memory", "2048"]
+      end
+
       host.vm.provision "shell" do |shell|
         shell.path = "provisioning/pre-provision.sh"
       end
