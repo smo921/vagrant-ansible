@@ -1,4 +1,5 @@
 ---
+server_name: "{{ ansible_hostname }}"
 users:
   - username: vagrant
     name: Vagrant User
