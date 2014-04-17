@@ -15,6 +15,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       host.vm.box_url = "http://files.vagrantup.com/precise64.box"
   
       host.vm.network :public_network
+      host.vm.network "forwarded_port", guest: 3306, host: 63306
+
       host.vm.synced_folder "data", "/vagrant_data"
 
       host.vm.provider "virtualbox" do |vb|

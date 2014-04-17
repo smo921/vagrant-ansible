@@ -1,3 +1,4 @@
 .*.swp
 .vagrant/
 vagrant_ansible_inventory_sandbox
+data/authorized_keys

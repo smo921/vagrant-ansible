@@ -14,13 +14,13 @@ The following must be installed on the system you will be running Vagrant on:
 * Set your role path for Ansible so you can install Galaxy add-ons with-out sudo
 ```cat ~/.ansible.cfg 
 [defaults]
-roles_path = /home/smo/projects/ansible/roles
+roles_path = $HOME/projects/ansible/roles
 ```
 
 ## Usage
 * git clone https://github.com/smo921/vagrant-ansible.git/
 * cd vagrant-ansible/
-* Update root users authorized_keys file in 'data/authorized_keys'
+* Add your local users ssh key into 'data/authorized_keys'
 * Add/Edit user information in 'provisioning/group_vars/all'
 * Launch Vagrant instance
   * vagrant up

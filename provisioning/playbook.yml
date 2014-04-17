@@ -6,12 +6,8 @@
     - mivok0.users
     - angstwad.docker_ubuntu
   tasks:
-    - name: ensure ntpd is at the latest version
-      apt: pkg=ntp state=latest
-      notify:
-      - restart ntpd
-
-  handlers:
-    - name: restart ntpd
-      service: name=ntpd state=restarted
-
+    - name: launch docker mysqld
+      docker: image=tutum/mysql ports=3306:3306
+    - name: Display IP address and port mappings for all containers
+      debug: msg={{inventory_hostname}} {{item.NetworkSettings}}
+      with_items: docker_containers
